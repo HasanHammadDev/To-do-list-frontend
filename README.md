@@ -1,8 +1,19 @@
-# React + Vite
+# Todo List Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Please refer to the [To do list backend] repository for the backend code, which is located here:
 
-Currently, two official plugins are available:
+https://github.com/HasanHammadDev/To-do-list-backend.git
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+How to install
+```bash 
+  git clone https://github.com/HasanHammadDev/To-do-list-frontend.git
+  cd To-do-list-frontend
+  npm i
+  npm run dev
+```
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file in the root of your Todo List Frontend folder.
+
+`VITE_REACT_APP_API_ENDPOINT`=you_api_enpoint
