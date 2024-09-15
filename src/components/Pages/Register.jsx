@@ -64,11 +64,20 @@ const Register = () => {
     );
   };
 
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       if (!inputs.username || !inputs.email || !inputs.password || !inputs.confirmPassword) {
         setErrorMsg('All fields are required.');
+        return;
+      }
+      if (!validateEmail(inputs.email)) {
+        setErrorMsg('Please enter a valid email address.');
         return;
       }
       if (!validatePassword()) {
@@ -201,7 +210,7 @@ const Register = () => {
           </div>
 
           {errorMsg && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4 mb-1" role="alert">
               <span className="block sm:inline">{errorMsg}</span>
             </div>
           )}

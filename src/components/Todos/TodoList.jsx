@@ -43,7 +43,7 @@ const TodoList = () => {
 
   const handleToggleCompletion = async (id, currentCompletionState) => {
     try {
-      const updatedTodo = await toggleTaskCompletion({ id, completed: currentCompletionState });
+      await toggleTaskCompletion({ id, completed: currentCompletionState });
       
       setTodoList(prevTodos =>
         prevTodos.map(todo => 

@@ -5,7 +5,7 @@ const CreateTodo = ({ onTodoCreated }) => {
   const [todoData, setTodoData] = useState({
     taskName: "",
     dueDate: "",
-    priority: 2
+    priority: 2,
   });
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -29,7 +29,9 @@ const CreateTodo = ({ onTodoCreated }) => {
         setErrorMessage(response.message);
         setTodoData({ taskName: "", dueDate: "", priority: 2 });
       } else {
-        setErrorMessage(response.message || "There was an error creating the todo.");
+        setErrorMessage(
+          response.message || "There was an error creating the todo."
+        );
       }
     } catch (error) {
       console.error("There was an error creating todo", error);
@@ -62,12 +64,14 @@ const CreateTodo = ({ onTodoCreated }) => {
   return (
     <div>
       {errorMessage && (
-        <div className="bg-red-200 border border-red-300 text-red-700 p-4 rounded-lg mx-10 my-5 text-center">
+        <div className="bg-gray-200 border border-red-300 text-gray-700 p-4 rounded-lg mx-10 my-5 text-center">
           {errorMessage}
         </div>
       )}
       <form onSubmit={handleSubmit} className="max-w-2xl mx-auto mt-8">
-        <label htmlFor="formBasicTask">Task <b>*</b></label>
+        <label htmlFor="formBasicTask">
+          Task <b>*</b>
+        </label>
         <input
           type="text"
           name="taskName"
@@ -103,12 +107,14 @@ const CreateTodo = ({ onTodoCreated }) => {
           </select>
         </div>
 
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg mt-2"
-        >
-          Create Todo!
-        </button>
+        <div className="flex justify-center mt-4">
+          <button
+            type="submit"
+            className="bg-blue-500 max hover:bg-blue-600 text-white font-bold py-2 px-12 rounded-lg"
+          >
+            Create Todo!
+          </button>
+        </div>
       </form>
     </div>
   );
